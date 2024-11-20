@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 8080
   tomcat:
     connection-timeout: 2s
     keep-alive-timeout: 15s
@@ -17,3 +17,17 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+
+logging:
+  level:
+    root: INFO            # 전체 기본 로그 레벨 설정
+    org.hibernate.sql: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
+pring:
+  jpa:
+    show-sql: true             # 실행되는 SQL 쿼리를 콘솔에 출력
+    properties:
+      hibernate:
+        format_sql: true       # SQL 쿼리를 보기 쉽게 포맷
+        use_sql_comments: true # SQL 쿼리에 주석 추가 (선택 사항)
