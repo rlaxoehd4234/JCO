@@ -1,5 +1,6 @@
 package org.jco.communityservice.domain;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class CommunityController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Long> save(@RequestBody Community community) {
+    public ResponseEntity<Long> save(@Valid @RequestBody Community community) {
         return ResponseEntity.status(201).body(communityService.save(community));
     }
 

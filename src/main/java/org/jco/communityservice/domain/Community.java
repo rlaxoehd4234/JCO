@@ -4,17 +4,24 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
-@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class Community {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long comId;
+    @NotBlank( message = "The Community title must be defined")
     String title;
+    @NotBlank(message = "The Community content must be defined")
     String content;
     //category 추가 예정 -> jpa 의존성 추가 후
     Long likeCount;
@@ -28,9 +35,5 @@ public class Community {
     Community (String content, String title){
         this.content = content;
         this.title = title;
-    }
-
-    public Community() {
-
     }
 }
