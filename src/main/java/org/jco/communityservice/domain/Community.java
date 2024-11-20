@@ -4,15 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 
 import java.util.Date;
 
 @Entity
-public class Community
-{
+@AllArgsConstructor
+public class Community {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long ComId;
+    Long comId;
     String title;
     String content;
     //category 추가 예정 -> jpa 의존성 추가 후
@@ -24,4 +25,12 @@ public class Community
     Long view;
     String writer;
     String image_root;
+    Community (String content, String title){
+        this.content = content;
+        this.title = title;
+    }
+
+    public Community() {
+
+    }
 }
