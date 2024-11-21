@@ -10,12 +10,13 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.xml.transform.Source;
 import java.util.Date;
 
 @Entity
 @NoArgsConstructor
 @Data
-public class Community {
+public class Community implements Source {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long comId;
@@ -32,8 +33,18 @@ public class Community {
     Long view;
     String writer;
     String image_root;
-    Community (String content, String title){
+    public Community(String content, String title){
         this.content = content;
         this.title = title;
+    }
+
+    @Override
+    public void setSystemId(String systemId) {
+
+    }
+
+    @Override
+    public String getSystemId() {
+        return "";
     }
 }
