@@ -15,11 +15,11 @@ import java.util.Date;
 
 @Entity
 @NoArgsConstructor
-@Data
-public class Community implements Source {
+@Getter
+public class Community {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long comId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int comId;
     @NotBlank( message = "The Community title must be defined")
     String title;
     @NotBlank(message = "The Community content must be defined")
@@ -38,13 +38,4 @@ public class Community implements Source {
         this.title = title;
     }
 
-    @Override
-    public void setSystemId(String systemId) {
-
-    }
-
-    @Override
-    public String getSystemId() {
-        return "";
-    }
 }

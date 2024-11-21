@@ -19,7 +19,7 @@ public class CommunityController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Long> save(@Valid @RequestBody Community community) {
+    public ResponseEntity<Integer> save(@Valid @RequestBody Community community) {
         return ResponseEntity.status(201).body(communityService.save(community));
     }
 
