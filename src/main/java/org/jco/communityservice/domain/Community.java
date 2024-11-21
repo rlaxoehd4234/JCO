@@ -10,15 +10,16 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.xml.transform.Source;
 import java.util.Date;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
 public class Community {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long comId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int comId;
     @NotBlank( message = "The Community title must be defined")
     String title;
     @NotBlank(message = "The Community content must be defined")
@@ -32,8 +33,9 @@ public class Community {
     Long view;
     String writer;
     String image_root;
-    Community (String content, String title){
+    public Community(String content, String title){
         this.content = content;
         this.title = title;
     }
+
 }

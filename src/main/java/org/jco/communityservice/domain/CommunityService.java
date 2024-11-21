@@ -18,7 +18,7 @@ public class CommunityService {
     public Community findById(Long id){
         return communityRepository.findByComId(id).orElseThrow(CommunityNotFoundException::new);
     }
-    public Long save(Community community) {
+    public int save(Community community) {
         return communityRepository.save(community).comId;
     }
 
