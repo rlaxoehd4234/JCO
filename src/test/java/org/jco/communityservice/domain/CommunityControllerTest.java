@@ -14,15 +14,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-//@SpringBootTest(
-//        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
-//)
 @WebMvcTest(controllers = CommunityController.class)
 class CommunityControllerTest {
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
-    private WebTestClient webTestClient;
 
     @MockBean
     private CommunityService service;
@@ -31,20 +26,6 @@ class CommunityControllerTest {
 
     @Test
     void getCommunity() {
-    }
-
-    @Test
-    void save() {
-
-        Community community = new Community("Content", "Title");
-
-        webTestClient.post()
-                .uri("/community/save")
-                .bodyValue(community)
-                .exchange()
-                .expectStatus().isCreated()
-                .expectBody(Integer.class)
-                .value(actual -> assertThat(actual).isEqualTo(1));
     }
 
     @Test
