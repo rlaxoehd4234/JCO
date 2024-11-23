@@ -31,7 +31,7 @@ public class Community {
     Date updateTime;
     //        int deleteYn
     Long view;
-    String writer;
+//    String writer;
     String image_root;
     public Community(String content, String title){
         this.content = content;
