@@ -3,12 +3,10 @@ package org.jco.communityservice.domain;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -38,13 +36,13 @@ class CommunityControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-
-
     @Test
-    void delete() {
+    void delete() throws Exception {
+        long communityNumber = Long.MAX_VALUE;
+        given(communityService.delete(communityNumber))
+                .willThrow(CommunityNotFoundException.class);
+        mockMvc.perform(MockMvcRequestBuilders.delete("/" + communityNumber))
+                .andExpect(status().isNotFound());
     }
 
-    @Test
-    void getAll() {
-    }
 }
