@@ -1,10 +1,12 @@
-package org.jco.communityservice.domain;
+package org.jco.communityservice.domain.service;
 
 import lombok.RequiredArgsConstructor;
+import org.jco.communityservice.domain.Community;
+import org.jco.communityservice.domain.exception.CommunityNotFoundException;
+import org.jco.communityservice.domain.repository.CommunityRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
