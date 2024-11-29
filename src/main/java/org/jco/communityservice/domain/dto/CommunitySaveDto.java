@@ -1,11 +1,14 @@
 package org.jco.communityservice.domain.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.jco.communityservice.domain.Community;
 
 public record CommunitySaveDto(
-        @NotBlank( message = "The Community title must be defined") String title
-        , @NotBlank(message = "The Community content must be defined") String content
+        @NotBlank( message = "The Community title must be defined")
+        @Size( min = 15, message = "Please more typing a 15 text" ) String title
+        , @NotBlank(message = "The Community content must be defined")
+        @Size( min = 50, message = "Please more typing a 50 text" ) String content
         , String imageRoot) {
 
     // dto -> Entity 로 변환하는 정적 팩토리입니다.

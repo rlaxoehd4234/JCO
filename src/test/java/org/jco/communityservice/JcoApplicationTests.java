@@ -24,7 +24,11 @@ class JcoApplicationTests {
     @Test
     void save() {
 
-        CommunitySaveDto communitySaveDto = new CommunitySaveDto("title", "content", "testRoot");
+        // test 시 size validation 으로 인한 제목 15 이상, 본문 50자 이상 필수
+        CommunitySaveDto communitySaveDto =
+                new CommunitySaveDto("titldfasdfasdfasdfasdffasdfasdfasdfe",
+                        "contenasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdft"
+                        , "testRoot");
 
         webTestClient.post()
                 .uri("/community/save")
