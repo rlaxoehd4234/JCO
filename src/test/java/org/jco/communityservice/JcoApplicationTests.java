@@ -1,6 +1,7 @@
 package org.jco.communityservice;
 
 import org.jco.communityservice.domain.Community;
+import org.jco.communityservice.domain.dto.CommunitySaveDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,11 +24,11 @@ class JcoApplicationTests {
     @Test
     void save() {
 
-        Community community = new Community("Content", "Title");
+        CommunitySaveDto communitySaveDto = new CommunitySaveDto("title", "content", "testRoot");
 
         webTestClient.post()
                 .uri("/community/save")
-                .bodyValue(community)
+                .bodyValue(communitySaveDto)
                 .exchange()
                 .expectStatus().isCreated()
                 .expectBody(Integer.class)

@@ -20,9 +20,7 @@ public class Community {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int comId;
-    @NotBlank( message = "The Community title must be defined")
     String title;
-    @NotBlank(message = "The Community content must be defined")
     String content;
     //category 추가 예정 -> jpa 의존성 추가 후
     Long likeCount;

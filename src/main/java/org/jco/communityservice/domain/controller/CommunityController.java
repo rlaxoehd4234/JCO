@@ -3,6 +3,7 @@ package org.jco.communityservice.domain.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.jco.communityservice.domain.Community;
+import org.jco.communityservice.domain.dto.CommunitySaveDto;
 import org.jco.communityservice.domain.service.CommunityService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +22,8 @@ public class CommunityController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Integer> save(@Valid @RequestBody Community community) {
-        return ResponseEntity.status(201).body(communityService.save(community));
+    public ResponseEntity<Integer> save(@Valid @RequestBody CommunitySaveDto communitySaveDto) {
+        return ResponseEntity.status(201).body(communityService.save(communitySaveDto));
     }
 
     @DeleteMapping("/{communityId}")
