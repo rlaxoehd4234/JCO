@@ -21,7 +21,7 @@ public class CommunityService {
         return communityRepository.findByComId(id).orElseThrow(CommunityNotFoundException::new);
     }
     public int save(Community community) {
-        return communityRepository.save(community).comId;
+        return communityRepository.save(community).getComId();
     }
 
     public Community delete(Long communityId) {

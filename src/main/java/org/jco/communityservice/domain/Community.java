@@ -32,10 +32,12 @@ public class Community {
     //        int deleteYn
     Long view;
     String writer;
-    String image_root;
+    String imageRoot;
     public Community(String content, String title){
         this.content = content;
         this.title = title;
     }
 
+    public Community(String title, String content, String imageRoot) {
+    }
 }
