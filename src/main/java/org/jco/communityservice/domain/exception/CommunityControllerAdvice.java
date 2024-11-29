@@ -1,4 +1,4 @@
-package org.jco.communityservice.domain;
+package org.jco.communityservice.domain.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;

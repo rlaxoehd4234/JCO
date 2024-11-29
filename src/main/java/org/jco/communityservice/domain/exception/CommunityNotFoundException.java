@@ -1,4 +1,4 @@
-package org.jco.communityservice.domain;
+package org.jco.communityservice.domain.exception;
 
 public class CommunityNotFoundException extends RuntimeException{
     public CommunityNotFoundException() {
