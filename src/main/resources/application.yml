@@ -16,18 +16,17 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create-drop  # 개발 환경에서 테이블 자동 생성/삭제
+      jdbc:
+        batch_size: 1000  # 배치 사이즈 설정
+      properties:
+        hibernate.format_sql: true        # SQL 쿼리를 보기 쉽게 포맷
+        hibernate.use_sql_comments: true  # SQL 쿼리에 주석 추가
+    show-sql: true             # 실행되는 SQL 쿼리를 콘솔에 출력
+    generate-ddl: true
 
 logging:
   level:
     root: INFO            # 전체 기본 로그 레벨 설정
     org.hibernate.sql: DEBUG
     org.hibernate.type.descriptor.sql: TRACE
-
-pring:
-  jpa:
-    show-sql: true             # 실행되는 SQL 쿼리를 콘솔에 출력
-    properties:
-      hibernate:
-        format_sql: true       # SQL 쿼리를 보기 쉽게 포맷
-        use_sql_comments: true # SQL 쿼리에 주석 추가 (선택 사항)
