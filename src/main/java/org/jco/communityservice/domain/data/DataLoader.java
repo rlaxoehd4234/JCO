@@ -2,6 +2,7 @@ package org.jco.communityservice.domain.data;
 
 
 import net.datafaker.Faker;
+import org.jco.communityservice.domain.Category;
 import org.jco.communityservice.domain.Community;
 import org.jco.communityservice.domain.repository.CommunityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +24,18 @@ public class DataLoader implements CommandLineRunner {
         List<Community> communities = new ArrayList<>();
 
         // 100만 건의 더미 데이터 생성
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 10000; i++) {
             String title = faker.lorem().sentence();
             String content = faker.lorem().paragraph();
             Long likeCount = (long) faker.number().numberBetween(0, 1000);
             Long unlikeCount = (long) faker.number().numberBetween(0, 500);
             String writer = faker.name().fullName();
             String imageRoot = faker.name().prefix();
-
+            List<Category> categories = new ArrayList<>();
+            Category category = new Category(faker.gender().types(), faker.name().fullName(), (long) faker.number().numberBetween(50, 100));
+            categories.add(category);
             // 생성자 사용
-            Community community = new Community(title, content, likeCount, unlikeCount, writer, imageRoot);
+            Community community = new Community(title, content, likeCount, unlikeCount, writer, imageRoot, categories);
             communities.add(community);
 
             // 1000개 단위로 배치 저장

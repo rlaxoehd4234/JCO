@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.xml.transform.Source;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -20,7 +21,10 @@ public class Community {
     String title;
     @Column(length = 1000)
     String content;
-    //category 추가 예정 -> jpa 의존성 추가 후
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "community_category", joinColumns = @JoinColumn(name = "com_id"))
+    List<Category> categories;
+
     Long likeCount;
     Long unlikeCount;
     @CreatedDate
@@ -37,10 +41,11 @@ public class Community {
         this.title = title;
     }
 
-    public Community(String title, String content, String imageRoot) {
+    public Community(String title, String content, String imageRoot, List<Category> categories) {
         this.title = title;
         this.content = content;
         this.imageRoot = imageRoot;
+        this.categories = categories;
     }
 
     public Community(String title, String content, Long likeCount, Long unlikeCount, String writer, String imageRoot) {
@@ -51,6 +56,16 @@ public class Community {
         this.writer = writer;
         this.imageRoot = imageRoot;
         this.view = 0L; // 기본 값 설정
+    }
+
+    public Community(String title, String content, Long likeCount, Long unlikeCount, String writer, String imageRoot, List<Category> categories) {
+        this.title = title;
+        this.content = content;
+        this.likeCount = likeCount;
+        this.unlikeCount = unlikeCount;
+        this.writer = writer;
+        this.imageRoot = imageRoot;
+        this.categories = categories;
     }
 
     // PrePersist 를 활용해 likeCount, UnlikeCount 의 default 값을 설정해줍니다.

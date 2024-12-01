@@ -1,5 +1,6 @@
 package org.jco.communityservice.domain.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.jco.communityservice.domain.Community;
 import org.jco.communityservice.domain.dto.CommunitySaveDto;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CommunityService {
     private final CommunityRepository communityRepository;
 
