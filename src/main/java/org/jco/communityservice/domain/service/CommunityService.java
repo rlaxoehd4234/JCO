@@ -1,10 +1,13 @@
-package org.jco.communityservice.domain;
+package org.jco.communityservice.domain.service;
 
 import lombok.RequiredArgsConstructor;
+import org.jco.communityservice.domain.Community;
+import org.jco.communityservice.domain.dto.CommunitySaveDto;
+import org.jco.communityservice.domain.exception.CommunityNotFoundException;
+import org.jco.communityservice.domain.repository.CommunityRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,8 +21,8 @@ public class CommunityService {
     public Community findById(Long id){
         return communityRepository.findByComId(id).orElseThrow(CommunityNotFoundException::new);
     }
-    public int save(Community community) {
-        return communityRepository.save(community).comId;
+    public int save(CommunitySaveDto communitySaveDto) {
+        return communityRepository.save(CommunitySaveDto.toEntity(communitySaveDto)).getComId();
     }
 
     public Community delete(Long communityId) {

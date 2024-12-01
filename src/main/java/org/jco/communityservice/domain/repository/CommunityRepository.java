@@ -1,7 +1,7 @@
-package org.jco.communityservice.domain;
+package org.jco.communityservice.domain.repository;
 
+import org.jco.communityservice.domain.Community;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;

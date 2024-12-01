@@ -1,5 +1,8 @@
 package org.jco.communityservice.domain;
 
+import org.jco.communityservice.domain.controller.CommunityController;
+import org.jco.communityservice.domain.exception.CommunityNotFoundException;
+import org.jco.communityservice.domain.service.CommunityService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
