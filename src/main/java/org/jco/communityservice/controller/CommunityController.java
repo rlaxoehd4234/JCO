@@ -1,10 +1,10 @@
-package org.jco.communityservice.domain.controller;
+package org.jco.communityservice.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.jco.communityservice.domain.Community;
-import org.jco.communityservice.domain.dto.CommunitySaveDto;
-import org.jco.communityservice.domain.service.CommunityService;
+import org.jco.communityservice.dto.CommunitySaveDto;
+import org.jco.communityservice.service.CommunityService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

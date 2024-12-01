@@ -1,11 +1,11 @@
-package org.jco.communityservice.domain.service;
+package org.jco.communityservice.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.jco.communityservice.domain.Community;
-import org.jco.communityservice.domain.dto.CommunitySaveDto;
-import org.jco.communityservice.domain.exception.CommunityNotFoundException;
-import org.jco.communityservice.domain.repository.CommunityRepository;
+import org.jco.communityservice.dto.CommunitySaveDto;
+import org.jco.communityservice.exception.CommunityNotFoundException;
+import org.jco.communityservice.repository.CommunityRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

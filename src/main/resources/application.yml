@@ -23,7 +23,23 @@ spring:
         hibernate.format_sql: true        # SQL 쿼리를 보기 쉽게 포맷
         hibernate.use_sql_comments: true  # SQL 쿼리에 주석 추가
     show-sql: true             # 실행되는 SQL 쿼리를 콘솔에 출력
-    generate-ddl: true
+    generate-ddl: true         # 개발 환경에서는 DDL 자동 생성 (배포 환경에서는 'none'으로 설정)
+
+  # Elasticsearch 설정
+  data:
+    elasticsearch:
+      rest:
+        connection-timeout: 1000 # 1초
+        read-timeout: 3000 # 3초
+        max-connection: 10 # 최대 연결 수
+        max-connection-per-route: 5 # 경로당 최대 연결 수
+      # 인증 설정 (필요시)
+      # username: "elastic"
+      # password: "password"
+      # uri: https://localhost:9200
+      index:
+        prefix: "community-index" # 인덱스 접두사 설정
+        type: "community"        # 인덱스 유형 설정 (Spring Data Elasticsearch에서 사용되는 옵션)
 
 logging:
   level:

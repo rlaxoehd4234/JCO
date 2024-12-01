@@ -1,4 +1,4 @@
-package org.jco.communityservice.domain.dto;
+package org.jco.communityservice.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -1,10 +1,10 @@
-package org.jco.communityservice.domain.data;
+package org.jco.communityservice.data;
 
 
 import net.datafaker.Faker;
 import org.jco.communityservice.domain.Category;
 import org.jco.communityservice.domain.Community;
-import org.jco.communityservice.domain.repository.CommunityRepository;
+import org.jco.communityservice.repository.CommunityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
