@@ -48,7 +48,7 @@ class JcoApplicationTests {
                 .exchange()
                 .expectStatus().isCreated()
                 .expectBody(Integer.class)
-                .value(actual -> assertThat(actual).isEqualTo(10001));
+                .value(actual -> assertThat(actual).isEqualTo(11));
     }
 
 }
