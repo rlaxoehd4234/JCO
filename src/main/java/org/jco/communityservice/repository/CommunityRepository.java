@@ -1,4 +1,4 @@
-package org.jco.communityservice.domain.repository;
+package org.jco.communityservice.repository;
 
 import org.jco.communityservice.domain.Community;
 import org.springframework.data.jpa.repository.JpaRepository;

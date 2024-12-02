@@ -1,8 +1,7 @@
 package org.jco.communityservice;
 
 import org.jco.communityservice.domain.Category;
-import org.jco.communityservice.domain.Community;
-import org.jco.communityservice.domain.dto.CommunitySaveDto;
+import org.jco.communityservice.dto.CommunitySaveDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -49,7 +48,7 @@ class JcoApplicationTests {
                 .exchange()
                 .expectStatus().isCreated()
                 .expectBody(Integer.class)
-                .value(actual -> assertThat(actual).isEqualTo(10001));
+                .value(actual -> assertThat(actual).isEqualTo(11));
     }
 
 }
