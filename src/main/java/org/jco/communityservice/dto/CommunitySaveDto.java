@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.jco.communityservice.domain.Category;
 import org.jco.communityservice.domain.Community;
+import org.jco.communityservice.domain.CommunityDocument;
 
 import java.util.List;
 
@@ -15,13 +16,14 @@ public record CommunitySaveDto(
         , String imageRoot
         , List<Category> categories) {
 
-    // dto -> Entity 로 변환하는 정적 팩토리입니다.
+
+    // Entity -> dto 로 변환하는 정적 팩토리입니다.
     public static CommunitySaveDto fromEntity(Community community){
         return new CommunitySaveDto(community.getTitle(),
                 community.getContent(), community.getImageRoot(), community.getCategories());
     }
 
-    // Entity -> dto 로 변환하는 정적 팩토리 입니다.
+    // dto -> Entity 로 변환하는 정적 팩토리 입니다.
     public static Community toEntity(CommunitySaveDto dto){
         return new Community(dto.title, dto.content, dto.imageRoot, dto.categories);
     }

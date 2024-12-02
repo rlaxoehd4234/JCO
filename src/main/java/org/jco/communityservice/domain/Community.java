@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 public class Community {
+    //TODO : 추후 BigInt 로 변경
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     int comId;
@@ -77,5 +78,15 @@ public class Community {
         if(unlikeCount == null){
             unlikeCount = 0L;
         }
+    }
+    //dto -> Document 로 변환하는 정적 팩토리입니다.
+    public static CommunityDocument toDocument(Community community){
+        return new CommunityDocument(
+                community.comId,
+                community.title,
+                community.content,
+                community.writer,
+                community.likeCount,
+                community.unlikeCount);
     }
 }
